@@ -11,3 +11,8 @@ class WarehouseForm(ModelForm):
 	class Meta:
 		model = Warehouse
 		fields = '__all__'
+
+class ProductsForm(ModelForm):
+	class Meta:
+		model = Warehouse
+		fields = '__all__'
