@@ -1,0 +1,74 @@
+{%  extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>Warehouse:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_warehouse' %}">Create Warehouse</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Warehouse Name</th>
+					<th>Contact</th>
+					<th></th>
+					<th></th>
+
+				</tr>
+
+				{% for warehouse in warehouse %}
+					<tr>
+						<td>{{warehouse.name}}</td>
+						<td>{{warehouse.phone}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'warehouse' warehouse.id %}">View</a></td>
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_warehouse' warehouse.id %}">Delete</a></td>
+
+
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>Orders</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'create_order' %}">Assign Products to warehouse</a>
+			<table class="table table-sm">
+				<tr>
+					<th>Product</th>
+					<th>Date Assigned</th>
+					<th>Warehouse</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+
+				{% for order in orders %}
+					<tr>
+						<td>{{order.product}}</td>
+						<td>{{order.date_created}}</td>
+						<td>{{order.warehouse}}</td>
+						<td>{{order.status}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'update_order' order.id %}">Update</a></td>
+
+						<td><a class="btn btn-sm btn-danger" href="{% url 'delete_order' order.id %}">Delete</a></td>
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+
