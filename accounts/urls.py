@@ -16,5 +16,8 @@ urlpatterns = [
     path('update_warehouse/<str:pk>/', views.updateWarehouse, name="update_warehouse"),
     path('delete_warehouse/<str:pk>/', views.deleteWarehouse, name="delete_warehouse"),
 
+    path('create_product/', views.createProduct, name="create_product"),
+    path('update_product/<str:pk>/', views.updateProduct, name="update_product"),
+    path('delete_product/<str:pk>/', views.deleteProduct, name="delete_product"),
 
 ]
